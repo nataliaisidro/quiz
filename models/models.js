@@ -41,14 +41,19 @@ var sequelize = new Sequelize(DB_name,user,pwd,
   exports.Quiz=Quiz; //exporta la definicon de la tabla Quiz
 
   //creamos e inicializamos la tabla de preguntas en la bbdd
-  sequelize.sync().success(function()
+  sequelize.sync().then(function()
+  // then() ejecuta el manejador una vez creada la tabla
                 {
-                  Quiz.count().success(function(count){
+                  Quiz.count().then(function(count){
                     //mira numero de filas de la tabla, si es cero se inicializa
-                      if(count===0){Quiz.create({pregunta: 'Capital de Italia',
+                      if(count===0){
+                        Quiz.create({pregunta: 'Capital de Italia',
                                                   respuesta: 'Roma'
-                    })
-                  .success(function(){console.log('Base de datos inicializada')})
+                                                })
+                        Quiz.create({pregunta: 'Capital de Portugal',
+                                                  respuesta: 'Lisboa'
+                                                })
+                  .then(function(){console.log('Base de datos inicializada')})
                 };
 
               });
