@@ -70,6 +70,6 @@ exports.create=function(req,res){
   //guarda en bbdd los campos pregunta y respuesta de quiz
   quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
     //Redirección http (url relativo) a lissta de preguntas
-      res.redirect('quizes/');
+      res.redirect('/quizes');
     })
 };
