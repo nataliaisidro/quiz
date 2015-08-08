@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 //incluimos el paquete para realizar el layout
 var partials = require('express-partials');
 
+var methodOverride = require ('method-override');
+
 var routes = require('./routes/index');
 //var users = require('./routes/users');
 
@@ -28,6 +30,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
