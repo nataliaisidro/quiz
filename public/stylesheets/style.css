@@ -9,3 +9,5 @@ body {font: 16px Georgia, serif;}
  footer  {background:#eee; text-align: center;}
  nav span {margin: 0px 10px 0px 0px;}
 a {color: #6600CC;}
+
+#ErrorMsgs {color: #f61; font-size: smaler}
